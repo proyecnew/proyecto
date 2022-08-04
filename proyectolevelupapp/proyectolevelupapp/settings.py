@@ -1,5 +1,6 @@
 from pathlib import Path
-#kevin hola
+#kevin hola mundo 
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
