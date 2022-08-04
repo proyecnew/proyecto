@@ -1,6 +1,6 @@
 from pathlib import Path
 #kevin hola mundo 
-#hola como estas
+#hola como 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
