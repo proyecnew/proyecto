@@ -1,0 +1,23 @@
+{% extends 'principal/base.html' %}
+
+{% block title %}verificacion{% endblock  %}
+
+
+{% block content  %}
+
+{% if usuario_lista %}
+
+    {% for  persona in usuario_lista  %}
+        <div><p><a href="/verificacion/{{persona.id}}"><img src="{{ persona.foto.url }}">{{ persona.usuario }} </a>
+            {{persona.create}} </p></div>
+        
+
+    {% endfor %}
+
+{% else %}
+
+    <p>no hay nada</p>
+
+{% endif %}
+
+{% endblock  %}
