@@ -1,0 +1,24 @@
+{% extends 'principal/base.html' %}
+
+{% block title %}deposito{% endblock  %}
+
+
+{% block content  %}
+
+
+{% if usuario_lista %}
+
+    {% for  persona in usuario_lista  %}
+        <div><p><a href="/deposito/{{persona.id}}"><img src="{{ persona.foto.url }}">{{ persona.usuario }} {{ persona.monto }} {{persona.create}}  </a></p></div>
+           
+        
+
+    {% endfor %}
+
+{% else %}
+
+    <p>no hay nada</p>
+
+{% endif %}
+
+{% endblock  %}

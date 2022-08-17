@@ -3,6 +3,23 @@
 {% block title %} home {% endblock  %} 
 
 {% block content  %}
+<style>
+    .col {
+        border: 2px solid black
+    }
+</style>
+<div class="container text-center" style="background: red">
+    <div class="row">
+      <div class="col">
+        <a class="ver" href="{% url 'abner:verificacion' %}">verificacion</a>
+      </div>
+      <div class="col">
+        <a class="ver" href="{% url 'abne:deposito' %}">deposito</a>
+      </div>
+    </div>
+  </div>
 
+
+<p>bienvenido a la empresa xy</p>
 
 {% endblock  %}

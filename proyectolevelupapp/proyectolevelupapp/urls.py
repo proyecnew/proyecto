@@ -10,6 +10,9 @@ urlpatterns = [
     
     path('verificacion/', include('verificacion.urls')),
     
+    path('deposito/', include('deposito.urls')),
+   
+    
     path('', include('principal.urls')),
     
     

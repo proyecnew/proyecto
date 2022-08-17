@@ -5,16 +5,23 @@
 
 {% block content  %}
 
-{% if usuario_lista %}
+<div class="container text-center" style="background: red">
+    <div class="row">
+      <div class="col">
+        {% if usuario_lista %}
 
-    {% for  persona in usuario_lista  %}
-        <div><p><a href="/verificacion/{{persona.id}}"><img src="{{ persona.foto.url }}">{{ persona.usuario }} </a>
-            {{persona.create}} </p></div>
+        {% for  persona in usuario_lista  %}
+        <div><p><a href="/verificacion/{{persona.id}}"><img src="{{ persona.foto.url }}">{{ persona.usuario }} {{persona.create}}  </a></p></div>
+           
         
 
-    {% endfor %}
+        {% endfor %}
 
-{% else %}
+        {% else %}
+      </div>
+    </div>
+  </div>
+
 
     <p>no hay nada</p>
 

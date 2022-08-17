@@ -23,6 +23,7 @@ class Verificacion(models.Model):
     pose2=models.ImageField(upload_to="verificacion", null=True, blank=True)
     selfie1=models.ImageField(upload_to="verificacion", null=True, blank=True)
     selfie2=models.ImageField(upload_to="verificacion", null=True, blank=True)
+    respuesta=models.BooleanField(blank=True, null=True)
     documento=models.ImageField(upload_to="verificacion",null=True, blank=True)
     mensaje=models.TextField(blank=True, null=True)
     

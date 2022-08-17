@@ -1,0 +1,28 @@
+{% extends 'principal/base.html' %}
+
+{% block title %}verificacion{% endblock  %}
+
+
+{% block content  %}
+<a href="{% url 'abne:deposito' %}"><input type="submit" value="volver "></a>
+
+
+<form action="{% url 'abne:resultado' persona.id %}">
+ {% csrf_token %}
+ {% for usuario in persona.deposito_set.all %}
+    <p> <img  src="{{ usuario.foto.url }}"></p>
+    <p> nombre del usuario: {{ usuario.nombre }} </p>
+    <p>{{ usuario.create}}</p>
+    <p>{{ usuario.banco }}</p>
+    <p>{{ usuario.cuenta }}</p>
+    <p>{{ usuario.telefono }}</p>
+    <p>{{ usuario.valor }}</p>
+    <p><textarea name="comentario" rows="10" cols="70">{{usuario.mensaje}} </textarea></p>
+    
+{% endfor %}
+<input type="submit" value="Denegar" > <input type="submit" value="aceptar">
+</form>
+
+{% endblock  %}
+
+

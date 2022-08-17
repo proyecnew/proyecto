@@ -9,5 +9,6 @@ urlpatterns = [
     
     path("", views.verificacion, name="verificacion"),
     path("<int:persona_id>/", views.usuario, name="usuario"),
+    path("<int:persona_id>/resultado", views.resultado, name="resultado")
     
 ]

@@ -1,25 +1,36 @@
+{% extends 'principal/base.html' %}
+
+{% block title %}verificacion{% endblock  %}
+
+
+{% block content  %}
 <a href="{% url 'abner:verificacion' %}"><input type="submit" value="volver "></a>
 
 
-<form action="{% url 'abner:usuario' persona.id %}">
+<form action="{% url 'abner:resultado' persona.id %}">
  {% csrf_token %}
  {% for usuario in persona.verificacion_set.all %}
-    <p> <img  src="{{ usuario.foto.url }}"></p>
-    <p> nombre del usuario: {{ usuario.nombre }} </p>
-    <p>DPI del usuario: {{ usuario.dpi }}</p> 
-    <p><img src="{{ usuario.pose1.url }}"><img src="{{ usuario.pose2.url }}"><img src="{{ usuario.selfie1.url }}"><img src="{{ usuario.selfie2.url }}"><img src="{{ usuario.documento.url }}"></p>
-    <p><textarea name="comentario" rows="10" cols="70">{{usuario.mensaje}} </textarea></p>
+<div class="container text-center" style="background: red">
+
+    <div class="row">
+      <div class="col">
+        <p> <img  src="{{ usuario.foto.url }}"></p>
+        <p> nombre del usuario: {{ usuario.nombre }} </p>
+        <p>DPI del usuario: {{ usuario.dpi }}</p>
+      </div>
+      <div class="text-center">
+        <p><img src="{{ usuario.pose1.url }}" class="img-fluid" alt="Responsive image" width="200px">
+        <img src="{{ usuario.pose2.url }}" class="img-fluid" alt="Responsive image"  width="200px">
+        <img src="{{ usuario.selfie1.url }}" class="img-fluid" alt="Responsive image"  width="200px">
+        <img src="{{ usuario.selfie2.url }}" class="img-fluid" alt="Responsive image"  width="200px"><img src="{{ usuario.documento.url }}"></p> 
+      </div>
+    </div>
+  </div>
+  <p><textarea name="comentario" rows="10" cols="70">{{usuario.mensaje}} </textarea></p>
 {% endfor %}
-<input type="submit" value="Denegar x"><input type="submit" value="aceptar  ✔ ">
+<input type="submit" value="Denegar" > <input type="submit" value="aceptar">
 </form>
 
-
-
-
-
-
-
-
-
+{% endblock  %}
 
 
