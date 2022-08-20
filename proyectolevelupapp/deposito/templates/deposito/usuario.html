@@ -1,0 +1,46 @@
+{% extends "LoginApp/base.html" %}
+
+{% block title %}verificacion{% endblock  %}
+
+
+{% block content  %}
+
+{% include "Nav/barra.html" %}
+
+<body class="bg-info p-2 text-dark bg-opacity-25">
+
+    <div class="row justify-content-center align-items-center vh-100 mt-4">
+
+<form action="{% url 'abne:resultado' persona.id %}">
+ {% csrf_token %}
+ {% for usuario in persona.deposito_set.all %}
+
+ <ul class="list-group text-center p-3 mb-2 bg-transparent text-dark">
+    <li class="list-group-item"><img class="img-thumbnail" src="{{ usuario.foto.url }}"></li>
+    <li class="list-group-item"><p> Usuario: {{ usuario.nombre }}</p></li>
+    <li class="list-group-item">{{ usuario.create}}</li>
+    <li class="list-group-item">Banco: {{ usuario.banco }}</li>
+    <li class="list-group-item">No. Cuenta {{ usuario.cuenta }}</li>
+    <li class="list-group-item">Telefono: {{ usuario.telefono }}</li>
+    <li class="list-group-item bg-success">Q. {{ usuario.valor }}</li>
+  </ul>
+
+
+  <div class="form-floating">
+
+    <label for="floatingTextarea2">Añade comentario (Opcional)</label>
+    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">{{usuario.mensaje}}</textarea>
+
+  </div>
+
+    
+{% endfor %}
+<br>
+<input type="submit" value="Denegar" > <input type="submit" value="aceptar">
+</form>
+
+</div>
+</body>
+{% endblock  %}
+
+

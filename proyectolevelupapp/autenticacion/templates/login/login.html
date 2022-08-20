@@ -1,0 +1,35 @@
+{% extends "LoginApp/base.html" %}
+{% load crispy_forms_tags %}
+{% block title%} Login {% endblock %}
+
+{% block content %}
+<body class="bg-info p-2 text-dark bg-opacity-25">
+
+<div class="row justify-content-center align-items-center vh-100 mt-4">
+
+<div class="d-flex flex-column text-center">
+<h1 class="mb-4 fs-1">Iniciar Sesion</h1>
+
+<form method="post" action="">
+
+    {% csrf_token %}
+
+        {% if messages %}
+
+        {% for mensaje in messages %}
+
+        <span class="alert alert-danger" role="alert"> {{mensaje}} </span>
+
+        {% endfor %}
+
+        {% endif %}
+    <br><br>
+    {{form|crispy}}
+    <br><br>
+<button type="submit" class="btn btn-success">Login</button>
+</form>
+</div>
+</div>
+</body>
+
+{% endblock %}

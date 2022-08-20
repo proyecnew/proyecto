@@ -1,0 +1,43 @@
+{% extends "LoginApp/base.html" %}
+
+{% block title %}deposito{% endblock  %}
+
+
+{% block content  %}
+{% include "Nav/barra.html" %}
+<body class="bg-info p-2 text-dark bg-opacity-25">
+
+    <div class="row justify-content-center align-items-center vh-100 mt-4">
+
+{% if usuario_lista %}
+
+    {% for  persona in usuario_lista  %}
+
+        
+        <div class="container overflow-hidden text-center justify-content-center ">
+            <a href="/deposito/{{persona.id}}">
+            <div class="rounded-5 row gx-2 bg-dark text-white">
+              <div class="col">
+               <div class="p-1"><img class="rounded-circle w-50 p-3" src="{{ persona.foto.url }}"> {{ persona.usuario }}</div>
+              </div>
+              <div class="col">
+                <br>
+                <div class="p-3"><p> Q. {{ persona.monto }} <br> {{persona.create}} </p></div>
+              </div>
+            </div>
+            </a>
+          </div>
+
+
+    {% endfor %}
+
+{% else %}
+
+    <p>no hay nada</p>
+
+{% endif %}
+
+</div>
+</body>
+
+{% endblock  %}
